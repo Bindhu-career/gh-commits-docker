@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    build: ./be-source
+    container_name: backend
+    ports:
+      - 8085:8080
+  frontend:
+    build: ./fe-source
+    container_name: frontend
+    ports:
+      - 4205:80
+    links:
+      - backend
+    depends_on:
+      - backend
+    
